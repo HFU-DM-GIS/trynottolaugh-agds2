@@ -1,5 +1,5 @@
 // call init function when page is loaded
-window.addEventListener("load", init);
+window.addEventListener("load", init); 
 
 // define global variables
 let jokes;
@@ -8,8 +8,10 @@ let jokeCountEl;
 let jokeEl;
 let refreshLifeEl;
 
+
+
 // function called initial on page load
-function init () {
+function init () { //
 	// get jokes from api
 	getJokes();
 	// get DOM Element references
@@ -23,6 +25,8 @@ function init () {
 	refreshLifeEl.addEventListener("click", refreshLife)
 
 }
+
+
 
 // function to show next joke
 function onNextBtnClick () {

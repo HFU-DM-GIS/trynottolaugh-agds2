@@ -38,9 +38,31 @@
         <div id="canvas" class="canvas"></div>
     </div>
     <div class="box-btn">
-        <button id="start-button" class="btn-header">Start</button>
+        <button id="start-button" class="btn-header">Start Game</button>
+        
+
     </div>
+
+    <div class="button-container">
+        <button onclick="selectCategory('Nerdy')">Nerdy</button>
+        <button onclick="selectCategory('Aboutlife')">Aboutlife</button>
+        <button onclick="selectCategory('fullstack')">fullstack</button>
+    </div>
+    
+    <p id="confirmationText"></p>
+
+    <div class= "box-btn">
+       <button id="end-button" class="btn-header">End Game</button>
+    </div>
+    
+    </div>
+   
 </div>
+
+<button id="startButton" onclick="startGame()">Start Game</button>
+<p id="gameText"></p>
+
+
 
 <div class="card-wrap">
     <div class="card">

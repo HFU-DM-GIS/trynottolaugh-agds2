@@ -16,9 +16,38 @@ function onStartStop () {
 		endGame()
 		startButton.innerHTML = "Start"
 	} else {
+		console.log("Larissa");
 		startGame()
 		startButton.innerHTML = "Stop"
+
+		function startGame() {
+			var message = "The game starts, try not to laugh";
+			var textElement = document.getElementById("startButton");
+		
+			// Den Text im HTML-Dokument anzeigen
+			alert(message); 
+			var textElement = document.getElementById("gameText");
+
+    // Den Text unter dem Button anzeigen
+    textElement.innerHTML = message;
+		}
 	}
+}
+
+function selectCategory(category) {
+    var confirmationElement = document.getElementById("confirmationText");
+    confirmationElement.innerHTML = "Selected category: " + category;
+}
+
+
+
+function stopGame() {
+    // Das DOM-Element für den Text finden
+    var textElement = document.getElementById("gameText");
+
+    // Lösche den Text und stoppe den Timer
+    clearTimeout(gameTimer);
+    textElement.innerHTML = "End of the game";
 }
 
 // Function to start the smile detection
@@ -31,6 +60,9 @@ function startGame() {
 	gameStarted = true;
 
 }
+
+
+	
 
 // Function to stop the smile detection
 function endGame() {
@@ -71,7 +103,8 @@ async function startSmileDetection() {
 			});
 
 		// Add event listener to start button to start the game
-		startButton.addEventListener("click", onStartStop);
+		startButton.addEventListener("onclick", onStart);
+		endButton.addEventListener("onclick", onEnd);
 
 		// Process the video feed for smile detection
 		video.addEventListener("play", () => {
