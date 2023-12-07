@@ -57,7 +57,7 @@ body {
     cursor: pointer;
     border-radius: 10px;
     width: 100px;
-    color: white;
+    color: rgb(243, 241, 241);
     padding: 10px 20px;
 
     button:hover {

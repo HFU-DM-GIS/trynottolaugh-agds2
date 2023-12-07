@@ -1,6 +1,7 @@
 // DOM Elements references
 const video = document.getElementById("video");
-const startButton = document.querySelector("#start-button");
+const startButton = document.getElementById("startButton");
+console.log("Hallo");
 const multi = document.querySelector("#multi"); // Face tracking elements and stats
 
 // Smile detection variables
@@ -20,24 +21,17 @@ function onStartStop () {
 		startGame()
 		startButton.innerHTML = "Stop"
 
-		function startGame() {
-			var message = "The game starts, try not to laugh";
-			var textElement = document.getElementById("startButton");
-		
-			// Den Text im HTML-Dokument anzeigen
-			alert(message); 
-			var textElement = document.getElementById("gameText");
-
-    // Den Text unter dem Button anzeigen
-    textElement.innerHTML = message;
-		}
+	
 	}
 }
+
+
 
 function selectCategory(category) {
     var confirmationElement = document.getElementById("confirmationText");
     confirmationElement.innerHTML = "Selected category: " + category;
 }
+
 
 
 
@@ -57,7 +51,20 @@ function startGame() {
 	// show the face tracking elements and stats
 	multi.style.display = 'flex';
 	// Indicate that the game has started
-	gameStarted = true;
+	//gameStarted = true;
+
+	
+	var message = "The game starts, try not to laugh";
+		
+		
+	 // Den Text im HTML-Dokument anzeigen
+		alert(message); 
+			var textElement = document.getElementById("gameText");
+		
+			// Den Text unter dem Button anzeigen
+			textElement.value = message;
+		
+	
 
 }
 
@@ -103,8 +110,8 @@ async function startSmileDetection() {
 			});
 
 		// Add event listener to start button to start the game
-		startButton.addEventListener("onclick", onStart);
-		endButton.addEventListener("onclick", onEnd);
+		startButton.addEventListener("click", startGame);
+		//endButton.addEventListener("click", onEnd);
 
 		// Process the video feed for smile detection
 		video.addEventListener("play", () => {

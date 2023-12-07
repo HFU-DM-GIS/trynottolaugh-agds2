@@ -1,5 +1,5 @@
 // call init function when page is loaded
-window.addEventListener("load", init); 
+//window.addEventListener("load", init); 
 
 // define global variables
 let jokes;
