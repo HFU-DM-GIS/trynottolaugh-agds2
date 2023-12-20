@@ -5,7 +5,6 @@ const winnerElement = document.querySelector("#winner");
 const playAgainButton = document.querySelector("#play-again");
 const smileCounterElement1 = document.querySelector("#smile-counter-1");
 const smileCounterElement2 = document.querySelector("#smile-counter-2");
-const startButton = document.querySelector("#start-button");
 const restartButton = document.querySelector("#restart-button");
 const multi=document.querySelector("#multi");
 

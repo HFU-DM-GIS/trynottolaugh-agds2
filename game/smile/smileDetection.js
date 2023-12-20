@@ -1,6 +1,6 @@
 // DOM Elements references
 const video = document.getElementById("video");
-const startButton = document.getElementById("startButton");
+const startButton = document.getElementById("start-button");
 console.log("Hallo");
 const multi = document.querySelector("#multi"); // Face tracking elements and stats
 
@@ -10,6 +10,43 @@ let consecutiveSmiles1 = 0; // goes up each frame, when smile is detected
 let isSmiling1 = false; // is set to true wehen smiling to prevent loosing all lives at once
 let intervalStarted = false; // indicates whether a smile detection itteration is running atm
 let gameStarted = false; // indicates whether the game is started atm
+
+
+// Function to start the smile detection
+function startGame() {
+	// Vorherige Code-Teile...
+	alert("The game starts, try not to laugh");
+	// Give a visual feedback, the game has started
+	video.style.border="2px solid red";
+	// show the face tracking elements and stats
+	multi.style.display = 'flex';
+	// Indicate that the game has started
+	//gameStarted = true;
+}
+
+
+function stopGame() {
+    // Das DOM-Element für den Text finden
+    var textElement = document.getElementById("gameText");
+
+    // Lösche den Text und stoppe den Timer
+    clearTimeout(gameTimer);
+    textElement.innerHTML = "End of the game";
+	 // Vorherige Code-Teile...
+
+
+
+
+// Function to stop the smile detection
+function endGame() {
+	alert("Das Spiel ist zu Ende. Danke fürs Spielen!");
+	 refreshLife(); // Lade alle Leben neu
+}	// Give a visual feedback, the game has started
+	video.style.border="2px solid white";
+	// hide the face tracking elements and stats
+	multi.style.display = 'none';
+	// Reset game state variable
+	gameStarted = false;
 
 // Start/stop button function
 function onStartStop () {
@@ -35,51 +72,24 @@ function selectCategory(category) {
 
 
 
-function stopGame() {
-    // Das DOM-Element für den Text finden
-    var textElement = document.getElementById("gameText");
 
-    // Lösche den Text und stoppe den Timer
-    clearTimeout(gameTimer);
-    textElement.innerHTML = "End of the game";
+	
 }
 
-// Function to start the smile detection
-function startGame() {
-	// Give a visual feedback, the game has started
-	video.style.border="2px solid red";
-	// show the face tracking elements and stats
-	multi.style.display = 'flex';
-	// Indicate that the game has started
-	//gameStarted = true;
-
-	
-	var message = "The game starts, try not to laugh";
-		
-		
-	 // Den Text im HTML-Dokument anzeigen
-		alert(message); 
-			var textElement = document.getElementById("gameText");
-		
-			// Den Text unter dem Button anzeigen
-			textElement.value = message;
-		
-	
-
-}
-
-
-	
 
 // Function to stop the smile detection
 function endGame() {
+	alert("Das Spiel ist zu Ende. Danke fürs Spielen!");
+	 refreshLife(); // Lade alle Leben neu
 	// Give a visual feedback, the game has started
 	video.style.border="2px solid white";
 	// hide the face tracking elements and stats
 	multi.style.display = 'none';
 	// Reset game state variable
 	gameStarted = false;
+    
 }
+
 
 // Function to remove a life
 function updateLife () {
@@ -110,7 +120,7 @@ async function startSmileDetection() {
 			});
 
 		// Add event listener to start button to start the game
-		startButton.addEventListener("click", startGame);
+		//startButton.addEventListener("click", startGame);
 		//endButton.addEventListener("click", onEnd);
 
 		// Process the video feed for smile detection

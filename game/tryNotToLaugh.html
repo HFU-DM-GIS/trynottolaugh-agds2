@@ -33,6 +33,14 @@
     </div>
 </header>
 
+
+<div class="button-container">
+    <button onclick="selectCategory('Nerdy')">Nerdy</button>
+    <button onclick="selectCategory('Aboutlife')">Aboutlife</button>
+    <button onclick="selectCategory('fullstack')">fullstack</button>
+</div>
+
+
 <div class="container">
     <div id="multimedia" class="multimedia">
         <div id="multi" class="multi"></div>
@@ -45,10 +53,8 @@
 
     </div>
 
-    <div class="button-container">
-        <button onclick="selectCategory('Nerdy')">Nerdy</button>
-        <button onclick="selectCategory('Aboutlife')">Aboutlife</button>
-        <button onclick="selectCategory('fullstack')">fullstack</button>
+    
+
     </div>
     
     <p id="confirmationText"></p>
@@ -61,7 +67,7 @@
    
 </div>
 
-<button id="startButton" >Start Game</button>
+<button id="start-button" >Start Game</button>
 <p id="gameText"></p>
 
 
@@ -86,7 +92,7 @@
 
 <script>
 	window.addEventListener('load', (event) => {
-		startSmileDetection();
+	startSmileDetection();
 	});
 
 </script>

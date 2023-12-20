@@ -10,6 +10,8 @@ let refreshLifeEl;
 
 
 
+window.addEventListener("load", init);
+
 // function called initial on page load
 function init () { //
 	// get jokes from api
@@ -23,6 +25,7 @@ function init () { //
 
 	refreshLifeEl = document.querySelector("#refreshLife")
 	refreshLifeEl.addEventListener("click", refreshLife)
+		
 
 }
 
@@ -69,6 +72,13 @@ function getJokes() {
 		.catch(error => {
 			console.error('There was a problem with the fetch operation:', error);
 		});
+
+		function getJokes(category) {
+			// Verwende die Kategorie im API-Aufruf
+			fetch(`https://v2.jokeapi.dev/joke/${category}?type=single&amount=10`)
+				// Vorherige Verarbeitung...
+		}
+		
 }
 
 // function to reset lives

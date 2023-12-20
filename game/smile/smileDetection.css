@@ -1,39 +1,81 @@
 body {
     background-color: rgb(32, 32, 32);
     font-family: Helvetica, sans-serif;
+
+
 }
+.button-container {
+    display: flex; /* Erstellt einen Flex-Container, der standardmäßig horizontal ausgerichtet ist */
+    justify-content: center; /* Zentriert die Flex-Items (Buttons) horizontal */
+    align-items: center; /* Zentriert die Flex-Items (Buttons) vertikal */
+    background: none; /* Entfernt jegliche Hintergrundfarbe oder -bild, falls vorhanden */
+    padding-top: 150px;
+    border: none; /* Entfernt jeglichen Rand, falls vorhanden */
+    display: flex;
+    flex-direction: row; /* Stellt sicher, dass die Flex-Items nebeneinander angeordnet sind */
+    /* Restliche Stile... */
+   
+}
+
+.button-container button {
+    background-color: #aac6e3; /* Blaue Hintergrundfarbe für Buttons */
+    color: white; /* Weiße Textfarbe */
+    border: none; /* Keine Grenze */
+    padding: 10px 10px !important; /* Vertikaler und horizontaler Innenabstand */
+    padding-top:150px;
+    margin: 0 10px; /* Abstand zwischen den Buttons */
+    padding: 10px 10px; /* Vertikaler und horizontaler Innenabstand */
+    padding-top:150px;
+    border-radius: 20px; /* Abgerundete Ecken */
+    cursor: pointer; /* Cursor als Zeiger anzeigen */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.3s; /* Weiche Übergänge für den Hover-Effekt */
+    display: inline-block;
+    white-space: nowrap;
+    font-size: medium;
+}
+
+.button-container button:hover {
+    background-color: #0056b3; /* Dunklere blaue Farbe beim Hovern */
+    transform: scale(1.1); /* Vergrößert den Button leicht beim Hovern */
+}
+
+
 .container {
     position: absolute;
     top: 110px;
     width: 150px;
     right: 2.5%;
+    
+    
 }
 .box-btn {
     display: flex;
     justify-content: center;
 }
 .btn-header {
-    background-color: rgb(254, 155, 98);
-    border: 2px solid rgb(254, 155, 98);
+    background-color: rgb(232, 13, 13);
+    border: 2px solid #160502;
     padding: 10px;
+    text-align: center; 
     margin: 10px;
     cursor: pointer;
     border-radius: 10px;
     width: 100px;
-    color: white;
+    color: rgb(4, 0, 0);
 }
 .btn-footer {
-    background-color: rgb(10, 10, 10);
-    border: 2px solid rgb(254, 155, 98);
+    background-color: rgb(232, 13, 13);
+    border: 2px solid #160502;
     padding: 10px;
     margin: 10px;
 
     border-radius: 10px;
     width: 100px;
-    color: rgb(254, 155, 98);
+    color: #FF6347;;
 }
 .btn-header:hover {
-    background-color: rgb(19, 19, 19);
+    background-color: rgb(105, 15, 15);
 }
 .btn-header:disabled {
     background-color: grey;
@@ -42,33 +84,6 @@ body {
 
 
 
-
-.button-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgb(254, 155, 98);
-    border: 2px solid rgb(254, 155, 98);
-    margin: 10px;
-    cursor: pointer;
-    border-radius: 10px;
-    width: 100px;
-    color: rgb(243, 241, 241);
-    padding: 10px 20px;
-
-    button:hover {
-        background-color: rgb(233, 213, 213);
-    }
-}
-
-
-button {
-    margin: 5px;
-}
 .canvas {
     position: absolute;
     height: 150px;
@@ -97,6 +112,7 @@ button {
 .multimedia {
     position: relative;
     height: 150px;
+    padding-top: 150;
     display: flex;
     justify-content: center;
 }
@@ -114,3 +130,4 @@ button {
 
     z-index: 30;
 }
+
