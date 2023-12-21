@@ -1,6 +1,6 @@
 // DOM Elements references
 const video = document.getElementById("video");
-const startButton = document.getElementById("start-button");
+const startButton = document.getElementById("start-game");
 console.log("Hallo");
 const multi = document.querySelector("#multi"); // Face tracking elements and stats
 
@@ -12,27 +12,31 @@ let intervalStarted = false; // indicates whether a smile detection itteration i
 let gameStarted = false; // indicates whether the game is started atm
 
 
-// Function to start the smile detection
-function startGame() {
-	// Vorherige Code-Teile...
-	alert("The game starts, try not to laugh");
-	// Give a visual feedback, the game has started
-	video.style.border="2px solid red";
-	// show the face tracking elements and stats
-	multi.style.display = 'flex';
-	// Indicate that the game has started
-	//gameStarted = true;
+
+
+
+function onStartStop () {
+	if (startButton.innerHTML == "Stop") {
+		endGame()
+		startButton.innerHTML = "Start"
+	} else {
+		console.log("Larissa");
+		startGame()
+		startButton.innerHTML = "Stop"
+
+	
+	}
 }
+document.getElementById('start-game').addEventListener('click', function() {
+  alert("The game starts, try not to laugh!");
+});
+
+// Event-Handler für den "End Game"-Button
+document.getElementById('end-game').addEventListener('click', function() {
+  alert("It's the end.");
+});
 
 
-function stopGame() {
-    // Das DOM-Element für den Text finden
-    var textElement = document.getElementById("gameText");
-
-    // Lösche den Text und stoppe den Timer
-    clearTimeout(gameTimer);
-    textElement.innerHTML = "End of the game";
-	 // Vorherige Code-Teile...
 
 
 
@@ -46,21 +50,9 @@ function endGame() {
 	// hide the face tracking elements and stats
 	multi.style.display = 'none';
 	// Reset game state variable
-	gameStarted = false;
+	gameStarted = false; 
 
-// Start/stop button function
-function onStartStop () {
-	if (startButton.innerHTML == "Stop") {
-		endGame()
-		startButton.innerHTML = "Start"
-	} else {
-		console.log("Larissa");
-		startGame()
-		startButton.innerHTML = "Stop"
 
-	
-	}
-}
 
 
 
@@ -69,12 +61,6 @@ function selectCategory(category) {
     confirmationElement.innerHTML = "Selected category: " + category;
 }
 
-
-
-
-
-	
-}
 
 
 // Function to stop the smile detection
@@ -113,7 +99,7 @@ async function startSmileDetection() {
 				video.srcObject = stream;
 
 				// Enable the start button after webcam access is granted
-				startButton.disabled = false;
+				//startButton.disabled = false;
 			})
 			.catch((error) => {
 				console.error("Could not access the webcam:", error);

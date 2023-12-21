@@ -78,6 +78,7 @@ body {
   top: 40vh;
   width: 400px;
   height: 200px;
-
-  z-index: 30;
+  z-index:30px;
 }
+
+

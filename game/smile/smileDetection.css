@@ -2,6 +2,31 @@ body {
     background-color: rgb(32, 32, 32);
     font-family: Helvetica, sans-serif;
 
+    .game-controls {
+        display: flex; /* Verwendet Flexbox */
+        justify-content: center; /* Zentriert die Buttons horizontal im Flex Container */
+        align-items: center; /* Optional, zentriert die Buttons vertikal */
+        gap: 10px; /* Gibt einen Abstand zwischen den Buttons */
+        margin-top: 20px; /* Abstand von den Kategorien-Buttons oben */
+        
+      }
+      
+      /* Stile für die individuellen Buttons, falls nötig */
+      #start-game, #end-game {
+        padding: 10px 20px; /* Polsterung für Größe */
+        background-color: #aac6e3;
+        color:azure;
+        border: none; /* Keine Grenze */
+        cursor: pointer; /* Cursor als Zeiger anzeigen */
+        transition: background-color 0.3s; /* Weiche Übergänge für den Hover-Effekt */
+        border-radius: 20px;
+      }
+      
+      /* Stil für den Hover-Effekt */
+      #start-game:hover, #end-game:hover {
+        background-color: #0056b3; /* Dunklere Farbe beim Hovern */
+      }
+
 
 }
 .button-container {
@@ -107,12 +132,12 @@ body {
     position: relative;
     height: 150px;
     width: 150px;
+    padding-top: 150px;
     top: 0;
 }
 .multimedia {
     position: relative;
     height: 150px;
-    padding-top: 150;
     display: flex;
     justify-content: center;
 }

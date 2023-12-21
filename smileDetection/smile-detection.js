@@ -8,6 +8,7 @@ const smileCounterElement2 = document.querySelector("#smile-counter-2");
 const restartButton = document.querySelector("#restart-button");
 const multi=document.querySelector("#multi");
 
+
 // Smile detection variables
 const MIN_CONSECUTIVE_FRAMES = 3;
 let smileCounter1 = 0;
@@ -46,7 +47,7 @@ function startGame() {
   gameStarted = true;
 
   // Disable the start button to prevent re-starting while the game is running
-  startButton.disabled = true;
+  startGame.disabled = true;
 
   // Set a timer to end the game after 10 seconds
   timeoutID = setTimeout(() => {
@@ -92,14 +93,14 @@ async function startSmileDetection() {
         video.srcObject = stream;
 
         // Enable the start button after webcam access is granted
-        startButton.disabled = false;
+        startGame.disabled = false;
       })
       .catch((error) => {
         console.error("Could not access the webcam:", error);
       });
 
     // Add event listener to start button to start the game
-    startButton.addEventListener("click", startGame);
+    startGame.addEventListener("click", startGame);
 
     // Add event listener to play again button to restart the game
     playAgainButton.addEventListener("click", () => {
