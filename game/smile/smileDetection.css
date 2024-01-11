@@ -29,6 +29,7 @@ body {
 
 
 }
+
 .button-container {
     display: flex; /* Erstellt einen Flex-Container, der standardmäßig horizontal ausgerichtet ist */
     justify-content: center; /* Zentriert die Flex-Items (Buttons) horizontal */
@@ -42,7 +43,7 @@ body {
    
 }
 
-.button-container button {
+.button-container div {
     background-color: #aac6e3; /* Blaue Hintergrundfarbe für Buttons */
     color: white; /* Weiße Textfarbe */
     border: none; /* Keine Grenze */
@@ -60,7 +61,11 @@ body {
     font-size: medium;
 }
 
-.button-container button:hover {
+#any-btn {
+    transition: background-color 0.3s, transform 0.3s; /* Weiche Übergänge für den Hover-Effekt */
+}
+
+#any-btn:hover {
     background-color: #0056b3; /* Dunklere blaue Farbe beim Hovern */
     transform: scale(1.1); /* Vergrößert den Button leicht beim Hovern */
 }

@@ -10,75 +10,41 @@ let consecutiveSmiles1 = 0; // goes up each frame, when smile is detected
 let isSmiling1 = false; // is set to true wehen smiling to prevent loosing all lives at once
 let intervalStarted = false; // indicates whether a smile detection itteration is running atm
 let gameStarted = false; // indicates whether the game is started atm
+let gameIntervalId;
 
-
-
-
-
-function onStartStop () {
-	if (startButton.innerHTML == "Stop") {
-		endGame()
-		startButton.innerHTML = "Start"
-	} else {
-		console.log("Larissa");
-		startGame()
-		startButton.innerHTML = "Stop"
-
-	
-	}
-}
-document.getElementById('start-game').addEventListener('click', function() {
-  alert("The game starts, try not to laugh!");
+document.getElementById('start-game').addEventListener('click', function () {
+	alert("The game starts, try not to laugh!");
+	// TODO: disable button
+	gameStarted = true;
+	// Start the smile detection
+	startSmileDetection();
 });
 
 // Event-Handler für den "End Game"-Button
-document.getElementById('end-game').addEventListener('click', function() {
-  alert("It's the end.");
+document.getElementById('end-game').addEventListener('click', function () {
+	// TODO: enable start button
+	endGame();
 });
 
-
-
-
-
-
 // Function to stop the smile detection
 function endGame() {
 	alert("Das Spiel ist zu Ende. Danke fürs Spielen!");
-	 refreshLife(); // Lade alle Leben neu
-}	// Give a visual feedback, the game has started
-	video.style.border="2px solid white";
-	// hide the face tracking elements and stats
-	multi.style.display = 'none';
-	// Reset game state variable
-	gameStarted = false; 
+	refreshLife(); // Lade alle Leben neu	
 
-
-
-
-
-function selectCategory(category) {
-    var confirmationElement = document.getElementById("confirmationText");
-    confirmationElement.innerHTML = "Selected category: " + category;
-}
-
-
-
-// Function to stop the smile detection
-function endGame() {
-	alert("Das Spiel ist zu Ende. Danke fürs Spielen!");
-	 refreshLife(); // Lade alle Leben neu
 	// Give a visual feedback, the game has started
-	video.style.border="2px solid white";
+	video.style.border = "2px solid white";
 	// hide the face tracking elements and stats
 	multi.style.display = 'none';
 	// Reset game state variable
 	gameStarted = false;
-    
+	clearInterval(gameIntervalId);
+	intervalStarted = false;
+	
 }
 
 
 // Function to remove a life
-function updateLife () {
+function updateLife() {
 	let activeLifeEls = document.querySelectorAll(".icofont-heart.active") // get all elements with class 'active' (red hearts)
 	activeLifeEls[0].classList.remove('active')// remove the class 'active' from the first element (so its not red anymore) -> see css
 }
@@ -105,10 +71,6 @@ async function startSmileDetection() {
 				console.error("Could not access the webcam:", error);
 			});
 
-		// Add event listener to start button to start the game
-		//startButton.addEventListener("click", startGame);
-		//endButton.addEventListener("click", onEnd);
-
 		// Process the video feed for smile detection
 		video.addEventListener("play", () => {
 			// Create canvas element from face tracking stats
@@ -129,7 +91,7 @@ async function startSmileDetection() {
 			// check if interval is runnning
 			if (!intervalStarted) {
 				intervalStarted = true;
-				setInterval(async () => {
+				gameIntervalId = setInterval(async () => {
 					// check if video and game are runnning
 					if (!video.paused && !video.ended && gameStarted) {
 						// set face API options for detection
@@ -188,5 +150,3 @@ async function startSmileDetection() {
 	}
 }
 
-// Start the smile detection
-startSmileDetection();

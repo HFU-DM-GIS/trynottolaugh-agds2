@@ -7,6 +7,8 @@ let nextBtn;
 let jokeCountEl;
 let jokeEl;
 let refreshLifeEl;
+let categories = ["Any", "Misc", "Programming", "Dark", "Pun", "Spooky", "Christmas"]
+let selectedCategoryIndex = 2;
 
 
 
@@ -15,8 +17,11 @@ window.addEventListener("load", init);
 // function called initial on page load
 function init () { //
 	// get jokes from api
-	getJokes();
+	getJokes(categories[selectedCategoryIndex]);
 	// get DOM Element references
+	let anyBtn = document.getElementById("any-btn");
+	anyBtn.addEventListener("click", selectCategory("Any"))
+
 	nextBtn = document.querySelector(".next")
 	nextBtn.addEventListener("click", onNextBtnClick)
 
@@ -25,11 +30,13 @@ function init () { //
 
 	refreshLifeEl = document.querySelector("#refreshLife")
 	refreshLifeEl.addEventListener("click", refreshLife)
-		
-
 }
 
-
+function selectCategory(category) {
+    var confirmationElement = document.getElementById("confirmationText");
+    confirmationElement.innerHTML = "Selected category: " + category;
+	getJokes(category);
+}
 
 // function to show next joke
 function onNextBtnClick () {
@@ -43,15 +50,16 @@ function onNextBtnClick () {
 		// update joke count
 		jokeCountEl.innerHTML = 10 - jokes.length
 	} else {
-		// get new joke from api
-		getJokes()
+		// TODO: Congratulations alert if lives left
+		// end game and reset everything
+		endGame();
 	}
 }
 
 // function to get jokes from api
-function getJokes() {
+function getJokes(category) {
 	// fetch jokes with api parameter in URL
-	 fetch('https://v2.jokeapi.dev/joke/Any?type=single&amount=10')
+	 fetch(`https://v2.jokeapi.dev/joke/${category}?type=single&amount=10`)
 		.then(response => {
 			if (!response.ok) {
 				throw new Error('Network response was not ok');
@@ -72,13 +80,6 @@ function getJokes() {
 		.catch(error => {
 			console.error('There was a problem with the fetch operation:', error);
 		});
-
-		function getJokes(category) {
-			// Verwende die Kategorie im API-Aufruf
-			fetch(`https://v2.jokeapi.dev/joke/${category}?type=single&amount=10`)
-				// Vorherige Verarbeitung...
-		}
-		
 }
 
 // function to reset lives

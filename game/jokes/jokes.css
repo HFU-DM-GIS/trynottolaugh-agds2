@@ -89,13 +89,13 @@ header {
 }
 
 .card-wrap {
-    margin-top: -250px;
+    margin-top: 0px;
     width: 60%;
     
 }
 
 .card {
-    margin-top: 35%;
+    margin-top: 2%;
     width: 90%;
     height: 400px;
     padding: 0 5%;
