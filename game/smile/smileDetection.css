@@ -70,6 +70,32 @@ body {
     transform: scale(1.1); /* Vergrößert den Button leicht beim Hovern */
 }
 
+.button-container button, .button-container #any-btn {
+    background-color: #aac6e3; /* Blaue Hintergrundfarbe für Buttons */
+    color: white; /* Weiße Textfarbe */
+    border: none; /* Keine Grenze */
+    padding: 10px 10px !important; /* Vertikaler und horizontaler Innenabstand */
+    margin: 0 10px; /* Abstand zwischen den Buttons */
+    border-radius: 20px; /* Abgerundete Ecken */
+    cursor: pointer; /* Cursor als Zeiger anzeigen */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Schatten für den Button */
+    transition: background-color 0.3s, transform 0.3s; /* Weiche Übergänge für den Hover-Effekt */
+    display: inline-block;
+    white-space: nowrap;
+    font-size: medium;
+    
+    
+}
+
+#any-btn, #any-btn:hover, .button-container button:hover {
+    transition: background-color 0.3s, transform 0.3s; /* Weiche Übergänge für den Hover-Effekt */
+}
+
+.button-container button:hover {
+    background-color: #0056b3; /* Dunklere blaue Farbe beim Hovern */
+    transform: scale(1.1); /* Vergrößert den Button leicht beim Hovern */
+}
+
 
 .container {
     position: absolute;
@@ -110,6 +136,27 @@ body {
 .btn-header:disabled {
     background-color: grey;
     border: 2px solid grey;
+}
+
+#confirmationText {
+    color:#aac6e3;
+    border: 2px solid #160502;
+    padding: 20px;
+    text-align: center; 
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 30px;
+    width: 200px;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+}
+
+#confirmationText{
+    transition: background-color 0.3s, transform 0.3s;
+}
+#confirmationText:hover{
+    background-color: #0056b3; /* Dunklere blaue Farbe beim Hovern */
+    transform: scale(1.1); /* Vergrößert den Button leicht beim Hovern */ 
 }
 
 
@@ -160,4 +207,6 @@ body {
 
     z-index: 30;
 }
+
+
 

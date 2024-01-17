@@ -15,14 +15,14 @@ let gameIntervalId;
 document.getElementById('start-game').addEventListener('click', function () {
 	alert("The game starts, try not to laugh!");
 	// TODO: disable button
+	this.disabled = true; // Deaktiviert den Start-Button
 	gameStarted = true;
-	// Start the smile detection
 	startSmileDetection();
 });
 
 // Event-Handler für den "End Game"-Button
 document.getElementById('end-game').addEventListener('click', function () {
-	// TODO: enable start button
+	document.getElementById('start-game').disabled = false; // Aktiviert den Start-Button wieder
 	endGame();
 });
 
@@ -47,6 +47,7 @@ function endGame() {
 function updateLife() {
 	let activeLifeEls = document.querySelectorAll(".icofont-heart.active") // get all elements with class 'active' (red hearts)
 	activeLifeEls[0].classList.remove('active')// remove the class 'active' from the first element (so its not red anymore) -> see css
+	
 }
 
 
@@ -128,6 +129,7 @@ async function startSmileDetection() {
 									consecutiveSmiles1 = 0;
 
 									// Update lives
+									
 									updateLife()
 
 								}

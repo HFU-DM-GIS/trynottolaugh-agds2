@@ -9,6 +9,7 @@ let jokeEl;
 let refreshLifeEl;
 let categories = ["Any", "Misc", "Programming", "Dark", "Pun", "Spooky", "Christmas"]
 let selectedCategoryIndex = 2;
+let lebensAnzahl = 5;
 
 
 
@@ -82,8 +83,12 @@ function getJokes(category) {
 		});
 }
 
+
+
+
 // function to reset lives
 function refreshLife () {
+	alert('Alle Leben weg, schaaadeee')
 	// get all heart elements
 	let lifeEls = document.querySelectorAll(".icofont-heart")
 	// loop over the heart elements
