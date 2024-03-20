@@ -56,3 +56,8 @@ You can try out the game [here](https://matej-sulfrian.github.io/gisProject-tryN
    - Check out the `smile-detection.js` file and try to understand how the two face tracking works
    - ...
 
+## Review
+   - It's nice to have the posibility to choose between different categories.
+   - **BUT:** The categories "Spooky" and "Christmas" aren't working. Check if the passed argument to the joke API is correct.
+   - The game in general is fun but you haven't realy 
+
