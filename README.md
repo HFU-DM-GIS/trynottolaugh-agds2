@@ -59,5 +59,15 @@ You can try out the game [here](https://matej-sulfrian.github.io/gisProject-tryN
 ## Review
    - It's nice to have the posibility to choose between different categories.
    - **BUT:** The categories "Spooky" and "Christmas" aren't working. Check if the passed argument to the joke API is correct.
-   - The game in general is fun but you haven't realy 
+   - The category settings are in the middle of the page on top of the jokes frame, which is bad practice for user experience and doesn't look nice in general. There was a prepared settings button which you could have used to show and hide the setting elements.
+   - Regarding the placement of the alerts for game events like start, end and life reset you havent realy understood the code and it's runtime. -> Alter for emty lifes is poping up when lifes are reset...
+   - Because the alerts are popping up at the wrong time the game is more confusing then before. The goal was too add some game logic (eg. posibility of winning or loosing).
+   - Try to comment your own code for better understanding and to double check if your code is correct (and at the right place).
+   - Try to avoid js in your HTML file (onclick function, tryNotToLaugh.html:39 and following). Seperating it from the HTML file makes it easyer to track down the runtime and understand your code. Aswell oncklick function do have some limitations, so only use if necessary.
+   - The game in general is fun but you haven't realy added new things neither to the game experince nor to the look of the game.
+#### Overall:
+   - you haven't fixed one single bug of the list (even added more).
+   - you added 1/3 of one out of three extension ideas.
+   - you haven't understood the given code enough to master the tasks.
+   - But still: you added a new game element which workes well and extends the game experience alittle.
 
